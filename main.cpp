@@ -1,45 +1,40 @@
 /******************************************************************************
 
 Welcome to GDB Online.
-  GDB online is an online compiler and debugger tool for C, C++, Python, PHP, Ruby, 
-  C#, OCaml, VB, Perl, Swift, Prolog, Javascript, Pascal, COBOL, HTML, CSS, JS
-  Code, Compile, Run and Debug online from anywhere in world.
+GDB online is an online compiler and debugger tool for C, C++, Python, Java, PHP, Ruby, Perl,
+C#, OCaml, VB, Swift, Pascal, Fortran, Haskell, Objective-C, Assembly, HTML, CSS, JS, SQLite, Prolog.
+Code, Compile, Run and Debug online from anywhere in world.
 
 *******************************************************************************/
-#include <stdio.h>
+#include <iostream>
 
 int main()
 {
-    printf("Hello World");
+    std::cout<<"Hello World";
 
     return 0;
 }#include <iostream>
-#include <string>
-using namespace std;
 
-int main() {
-    int score[10] = {85, 90, 60, 92, 100, 76, 50, 89, 84, 40};
-    int gradeCount[5] = {0};
+double calcuateBMI(double weight_kg, double height_cm){
+    if (height_cm <= 0) return 0.0;
 
-    for (int i = 0; i < 10; ++i) {
-        if (score[i] >= 90) {
-            gradeCount[0]++;
-        } else if (score[i] >= 80) {
-            gradeCount[1]++;
-        } else if (score[i] >= 70) {
-            gradeCount[2]++;
-        } else if (score[i] >= 60) {
-            gradeCount[3]++;
-        } else {
-            gradeCount[4]++;
-        }
-    }
+    double height_m = height_cm / 100.0;
+    //bmi 計算
+    double bmi = weight_kg / (height_m * height_m);
+    return bmi;
+}
 
-    cout << "A等人數: " << gradeCount[0] << endl;
-    cout << "B等人數: " << gradeCount[1] << endl;
-    cout << "C等人數: " << gradeCount[2] << endl;
-    cout << "D等人數: " << gradeCount[3] << endl;
-    cout << "F等人數: " << gradeCount[4] << endl;
+int main()
+{
+    double weight1, weight2, height1, height2;
+
+    weight1 = 80;
+    weight2 = 70;
+    height1 = 168;
+    height2 = 188;
+
+    std::cout << "your bmi is " << calcuateBMI(weight1, height1) << std::endl;
+    std::cout << "another bmi is " << calcuateBMI(weight2, height2) << std::endl;
 
     return 0;
 }
