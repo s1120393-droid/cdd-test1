@@ -1,40 +1,61 @@
 /******************************************************************************
 
 Welcome to GDB Online.
-GDB online is an online compiler and debugger tool for C, C++, Python, Java, PHP, Ruby, Perl,
-C#, OCaml, VB, Swift, Pascal, Fortran, Haskell, Objective-C, Assembly, HTML, CSS, JS, SQLite, Prolog.
-Code, Compile, Run and Debug online from anywhere in world.
+  GDB online is an online compiler and debugger tool for C, C++, Python, PHP, Ruby, 
+  C#, OCaml, VB, Perl, Swift, Prolog, Javascript, Pascal, COBOL, HTML, CSS, JS
+  Code, Compile, Run and Debug online from anywhere in world.
 
 *******************************************************************************/
-#include <iostream>
+#include <stdio.h>
 
 int main()
 {
-    std::cout<<"Hello World";
+    printf("Hello World");
 
     return 0;
 }#include <iostream>
+#include <cstdlib>   // rand(), srand()
+#include <ctime>     // time()
 
-double calcuateBMI(double weight_kg, double height_cm){
-    if (height_cm <= 0) return 0.0;
+using namespace std;
 
-    double height_m = height_cm / 100.0;
-    //bmi 計算
-    double bmi = weight_kg / (height_m * height_m);
-    return bmi;
-}
+int main() {
+    const int N = 10;      // 陣列大小
+    int arr[N];
 
-int main()
-{
-    double weight1, weight2, height1, height2;
+    // ---- 亂數種子 ----
+    srand(time(NULL));
 
-    weight1 = 80;
-    weight2 = 70;
-    height1 = 168;
-    height2 = 188;
+    cout << "原始亂數陣列: ";
+    for (int i = 0; i < N; i++) {
+        arr[i] = rand() % 100;
+        cout << arr[i] << " ";
+    }
 
-    std::cout << "your bmi is " << calcuateBMI(weight1, height1) << std::endl;
-    std::cout << "another bmi is " << calcuateBMI(weight2, height2) << std::endl;
+    cout << endl;
+
+    // ---- 選擇排序 (Selection Sort) ----
+    for (int i = 0; i < N - 1; i++) {
+        int minIndex = i;
+
+        for (int j = i + 1; j < N; j++) {
+            if (arr[j] < arr[minIndex]) {
+                minIndex = j;
+            }
+        }
+
+        // 交換
+        int temp = arr[i];
+        arr[i] = arr[minIndex];
+        arr[minIndex] = temp;
+    }
+
+    // ---- 排序後陣列 ----
+    cout << "排序後陣列: ";
+    for (int i = 0; i < N; i++) {
+        cout << arr[i] << " ";
+    }
+    cout << endl;
 
     return 0;
 }
